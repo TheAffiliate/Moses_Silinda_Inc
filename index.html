@@ -210,15 +210,25 @@
       </div>
     </div>
   </footer>
+
   <script>
-    document.getElementById('menu-btn').addEventListener('click', function() {
-      var mobileMenu = document.getElementById('mobile-menu');
-      if (mobileMenu.classList.contains('hidden')) {
-        mobileMenu.classList.remove('hidden');
-      } else {
-        mobileMenu.classList.add('hidden');
-      }
+    document.addEventListener("DOMContentLoaded", function () {
+      const menuBtn = document.getElementById("menu-btn");
+      const mobileMenu = document.getElementById("mobile-menu");
+  
+      menuBtn.addEventListener("click", function () {
+        mobileMenu.classList.toggle("hidden");
+      });
+  
+      // Close mobile menu when a link is clicked
+      document.querySelectorAll("#mobile-menu a").forEach(link => {
+        link.addEventListener("click", function () {
+          mobileMenu.classList.add("hidden");
+        });
+      });
     });
   </script>
+  
+
 </body>
 </html>
